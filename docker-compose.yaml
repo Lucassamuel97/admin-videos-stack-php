@@ -11,15 +11,14 @@ services:
         ports:
           - 8080:8000
     
-    # frontend:
-    #     build: ./frontend
-    #     entrypoint: ./.docker/entrypoint.sh
-    #     tty: true
-    #     environment:
-    #         - CHOKIDAR_USEPOLLING=true
-    #     #command: sh -c "npm install && npm start"
-    #     volumes:
-    #         - ./frontend:/home/node/app
-    #     ports:
-    #       - 3000:3000
-    #       - 35729:35729
+    frontend:
+        build: ./frontend
+        tty: true
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        #command: sh -c "yarn install && yarn start"
+        volumes:
+            - ./frontend:/home/node/app
+        ports:
+          - 3000:3000
+          - 35729:35729
