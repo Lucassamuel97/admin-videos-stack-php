@@ -18,3 +18,5 @@ _ide_helper.php
 public/admin-frontend/
 resources/views/admin-frontend
 service-account-storage.json
+.docker/rabbitmq/*
+.docker/keycloak/*

@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['namespace' => 'Api', 'middleware' => [
-    // 'auth:api',
-    // 'can:catalog-admin'
+    //'auth:api',
+    //'can:catalog-admin'
 ]], function () {
     $exceptCreateAndEdit = [
         'except' => ['create', 'edit']
