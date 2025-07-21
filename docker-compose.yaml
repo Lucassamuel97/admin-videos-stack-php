@@ -9,22 +9,21 @@ services:
             - ./backend:/var/www
             - ./backend/.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
         ports:
-          - 8080:8000
+            - 8080:8000
         depends_on:
             - keycloak
-    
+
     frontend:
         build: ./frontend
         tty: true
         environment:
             - CHOKIDAR_USEPOLLING=true
-        #command: sh -c "yarn install && yarn start"
         volumes:
             - ./frontend:/home/node/app
         ports:
-          - 3000:3000
-          - 35729:35729
-          
+            - 3000:3000
+            - 35729:35729
+
     keycloak:
         image: quay.io/keycloak/keycloak:24.0.3
         command: start-dev
@@ -35,8 +34,10 @@ services:
             - "8180:8080"
         volumes:
             - ./backend/.docker/keycloak/data:/opt/keycloak/data
+        user: "1000:1000" 
         networks:
             - default
+
 networks:
     default:
         driver: bridge
